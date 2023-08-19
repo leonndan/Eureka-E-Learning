@@ -63,6 +63,16 @@ return [
             ]) : [],
         ],
 
+        'cursosdb' => [
+            'driver' => 'mysql',
+            'host' => env('CURSOSDB_HOST', '127.0.0.1'),
+            'port' => env('CURSOSDB_PORT', '3306'),
+            'database' => env('CURSOSDB_DATABASE', 'forge'),
+            'username' => env('CURSOSDB_USERNAME', 'forge'),
+            'password' => env('CURSOSDB_PASSWORD', ''),
+            
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

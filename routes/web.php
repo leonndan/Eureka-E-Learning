@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\CursoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,10 +27,11 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/cursos', function () {
-        return view('cursos');
-    })->name('cursos');
+    Route::get('/cursos', [CursoController::class,'index'])->name('cursos'); 
+    Route::get('/cursos/create', [CursoController::class, 'create'])->name('cursos.create');
+    Route::get('/cursos/{id}', [CursoController::class, 'show'])->name('cursos.show');
 });
+
 
 Route::get('/contacto', 'App\Http\Controllers\ContactoController@index')->name('contacto');
 Route::post('/contacto', 'App\Http\Controllers\ContactoController@guardar')->name('contacto.guardar');
