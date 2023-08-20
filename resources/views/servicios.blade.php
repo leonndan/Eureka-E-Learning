@@ -1,15 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-    <div>
         <div class="container text-center">
-            <h1>Consultoria</h1>
+            <h1>Consultoria y Servicios</h1>
         </div>
-        <div class="container text-center">
-        <div>
-            <p id="consultoria">En nuestra empresa, nos especializamos en brindar servicios de consultoría y diseño curricular personalizados para satisfacer las necesidades específicas de nuestros clientes. Reconocemos que cada organización tiene características y desafíos únicos, por lo tanto, nos enfocamos en crear soluciones a medida que sean efectivas y se ajusten a sus objetivos. Ya sea que necesite desarrollar programas de capacitación, actualizar planes de estudio o implementar estrategias de aprendizaje, nuestro equipo de expertos está comprometido en colaborar estrechamente con usted para diseñar soluciones adaptadas a las necesidades particulares de su organización. Nos esforzamos por ofrecer un servicio de alta calidad que supere sus expectativas y contribuya al éxito de su organización.</p>
-        </div>
-        <div class="container text-center">
-            <h1>Nuestros servicios</h1>
+    </x-slot>
+    <div  class="container mt-5">
+        <div class="text-center mb-5">
+            <p class="lead">En nuestra empresa, nos especializamos en brindar servicios de consultoría y diseño curricular personalizados para satisfacer las necesidades específicas de nuestros clientes. Reconocemos que cada organización tiene características y desafíos únicos, por lo tanto, nos enfocamos en crear soluciones a medida que sean efectivas y se ajusten a sus objetivos. Ya sea que necesite desarrollar programas de capacitación, actualizar planes de estudio o implementar estrategias de aprendizaje, nuestro equipo de expertos está comprometido en colaborar estrechamente con usted para diseñar soluciones adaptadas a las necesidades particulares de su organización. Nos esforzamos por ofrecer un servicio de alta calidad que supere sus expectativas y contribuya al éxito de su organización.</p>
         </div>
             <div class="row justify-content-start">
             <div class="col-4">
@@ -71,5 +68,4 @@
             </div>
         </div>
     </div>
-    </x-slot>
 </x-app-layout>

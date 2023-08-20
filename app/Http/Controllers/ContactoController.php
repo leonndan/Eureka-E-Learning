@@ -23,4 +23,13 @@ class ContactoController extends Controller
 
         return redirect()->route('contacto')->with('message', 'Mensaje enviado correctamente.');
     }
+
+    public function eliminar($id)
+    {
+        $mensaje=Contacto::findOrFail($id);
+        $mensaje->delete();
+
+        return redirect()->back()->with('success', 'Mensaje eliminado correctamente.');
+
+    }
 }

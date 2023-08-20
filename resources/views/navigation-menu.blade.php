@@ -30,7 +30,7 @@
 
                 <!-- Settings Dropdown -->
                 @auth
-                    <x-jet-dropdown id="settingsDropdown">
+                    <x-jet-dropdown id="settingsDropdown" class="text-light">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <img class="rounded-circle" width="32" height="32" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
@@ -49,10 +49,23 @@
                                 {{ __('Administrador de cuenta') }}
                             </h6>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Perfil') }}
-                            </x-jet-dropdown-link>
+                            @php
+                                $admin=Auth::user()->email; 
+                            @endphp
 
+                            @if($admin=="eurekaelearningeasy@gmail.com")
+                                <x-jet-dropdown-link href="{{ route('dashboard') }}">
+                                    {{ __('Dashboard') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                    {{ __('Perfil') }}
+                                </x-jet-dropdown-link>
+                                
+                            @else
+                                <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                    {{ __('Perfil') }}
+                                </x-jet-dropdown-link>
+                            @endif
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}

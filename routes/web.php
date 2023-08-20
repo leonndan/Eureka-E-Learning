@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactoController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,11 +17,9 @@ use App\Http\Controllers\ContactoController;
 Route::get('/', function () {
     return view('inicio');
 })->name('inicio');
-
 Route::get('/servicios', function () {
     return view('servicios');
 })->name('servicios');
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -30,6 +29,13 @@ Route::middleware([
         return view('cursos');
     })->name('cursos');
 });
-
 Route::get('/contacto', 'App\Http\Controllers\ContactoController@index')->name('contacto');
 Route::post('/contacto', 'App\Http\Controllers\ContactoController@guardar')->name('contacto.guardar');
+Route::delete("/eliminar/{id}",[ContactoController::class,"eliminar"])->name("contacto.eliminar");
+Route::middleware(["auth","admin"])-> group(function()
+{
+    Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
+});
+
+
+
