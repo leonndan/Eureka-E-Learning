@@ -11,16 +11,17 @@ class CreateTableCursos extends Migration
      *
      * @return void
      */
+    protected $connection = 'cursosdb';
     public function up()
     {
-        Schema::connection('cursosdb')->create('table_cursos', function (Blueprint $table) {
+        Schema::create('table_cursos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_curso');
+            $table->string('nombre_curso')->unique();
             $table->text('descripcion_curso');
             $table->string('imagen_curso');
-            $table->string('precio_curso');
+            $table->integer('precio_curso');
             $table->string('url_video_curso')->unique();
-            $table->integer('calificacion_curso');
+            $table->integer('calificacion_curso')->nullable();
             $table->string('categoria_curso');
             $table->timestamps();
         });
