@@ -9,15 +9,21 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+        
+        
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
 
         @livewireStyles
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
-        
+        <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
+
+       
     </head>
     <body class="font-sans antialiased bg-light bm-white">
         <x-jet-banner />
@@ -33,6 +39,16 @@
         <!-- Page Content -->
         <main class="container my-5">
             {{ $slot }}
+            <script>
+                var botmanWidget = {
+                    frameEndpoint: "/botman/chat",
+                    aboutText: '/',
+                    mainColor:  "#041D5B",
+                    bubbleBackground: "#041D5B",  
+                    title: "Chat Bot",
+                    introMessage: "Prueba"
+                };
+                </script>
         </main>
 
         @stack('modals')
