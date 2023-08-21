@@ -48,7 +48,7 @@ class BotManController extends Controller
             $this->say('Informacion siguiente ');
 
           }else{
-            return;
+            
           }
 
           
