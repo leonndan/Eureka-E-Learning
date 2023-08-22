@@ -7,6 +7,7 @@
     <form action="{{route('cursos.update',$curso)}}" method="POST">
         @csrf
         @method('put')
+        <a href="{{route('cursos.show',$curso->id)}}" class="btn btn-primary">Regresar al curso</a>
         <div class="mb-3">
             <label for="nombre_curso" class="form-label">Nombre del curso</label>
             <input type="text" class="form-control" id="nombre_curso" name="nombre_curso" value="{{$curso->nombre_curso}}" required>
