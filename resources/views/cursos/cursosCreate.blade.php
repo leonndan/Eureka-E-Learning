@@ -20,7 +20,7 @@
         </div>
         <div class="mb-3">
             <label for="precio_curso" class="form-label">Precio</label>
-            <input type="number" class="form-control" id="precio_curso" name="precio_curso" >
+            <input type="number" class="form-control" id="precio_curso" name="precio_curso" required>
         </div>
         <div class="mb-3">
             <label for="url_video_curso" class="form-label">URL del video</label>
@@ -28,7 +28,7 @@
         </div>
         <div class="mb-3">
             <label for="imagen_curso" class="form-label">Imagen del curso</label>
-            <input type="text" class="form-control" id="imagen_curso" name="imagen_curso" required>
+            <input type="file" class="form-control" id="imagen_curso" name="imagen_curso" required>
         </div>
         
         <button class="btn btn-primary" type="submit">Crear curso</button>
