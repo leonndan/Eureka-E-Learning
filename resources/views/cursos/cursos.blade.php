@@ -7,9 +7,9 @@
         <h1>Pagina cursos</h1>
     </x-slot>
 
-    <a href="{{route('cursos.create')}}" class="btn btn-primary mb-4">Crear curso</a>
-
+    
     <div class="container">
+        <a href="{{route('cursos.create')}}" class="btn btn-primary mb-4">Crear curso</a>
         <div class="row">
         @foreach ($cursos as $curso)
             <div class="col-4">
