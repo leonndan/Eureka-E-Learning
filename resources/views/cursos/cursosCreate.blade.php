@@ -20,7 +20,7 @@
         </div>
         <div class="mb-3">
             <label for="precio_curso" class="form-label">Precio</label>
-            <input type="number" class="form-control" id="precio_curso" name="precio_curso" >
+            <input type="number" class="form-control" id="precio_curso" name="precio_curso" required>
         </div>
         <div class="mb-3">
             <label for="url_video_curso" class="form-label">URL del video</label>
