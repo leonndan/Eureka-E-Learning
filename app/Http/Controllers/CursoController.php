@@ -3,49 +3,99 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use App\Models\Curso;
 
 class CursoController extends Controller
 {
     public function index()
     {
+        $url= env('URL_SERVER_API', 'http://127.0.0.1');
+        $response= Http::get($url.'/cursos');
+        $data = $response->json();
+        // foreach($data as $curso){
+        //     echo $curso['nombre_curso'].' - '.$curso['descripcion_curso'];
+        // }
         // $cursos = Curso::all();
-        $cursos = Curso::paginate(1);
-        return view('cursos.cursos',compact('cursos'));
+        // $cursos = Curso::paginate(5);
+        return view('cursos.cursos',compact('data'));
     }
     public function create()
     {
         return view('cursos.cursosCreate');
     }
-    public function show($id)
-    {
-        $curso = Curso::find($id);
-        return view('cursos.cursosId', compact('curso'));
-    }
     public function store(Request $request)
     {
-        $curso = new Curso();
-        $curso->nombre_curso = $request->nombre_curso;
-        $curso->descripcion_curso = $request->descripcion_curso;
-        $curso->categoria_curso = $request->categoria_curso;
-        $curso->precio_curso = $request->precio_curso;
-        $curso->url_video_curso = $request->url_video_curso;
-        $curso->imagen_curso = $request->imagen_curso;
-        $curso->save();
-        return redirect()->route('cursos.show', $curso);
+        $url= env('URL_SERVER_API', 'http://127.0.0.1');
+        $response = Http::post($url.'/cursos', [
+            'id' => $request->id, //nombre_curso es el nombre del campo en el formulario
+            'nombre_curso' => $request->nombre_curso, //nombre_curso es el nombre del campo en el formulario
+            'descripcion_curso' => $request->descripcion_curso,
+            'categoria_curso' => $request->categoria_curso,
+            'precio_curso' => $request->precio_curso,
+            'url_video_curso' => $request->url_video_curso,
+            'imagen_curso' => $request->imagen_curso,
+        ]);
+        $data = $response->json();
+        // return $data;
+        return redirect()->route('cursos');
+
+        // $curso = new Curso();
+        // $curso->nombre_curso = $request->nombre_curso;
+        // $curso->descripcion_curso = $request->descripcion_curso;
+        // $curso->categoria_curso = $request->categoria_curso;
+        // $curso->precio_curso = $request->precio_curso;
+        // $curso->url_video_curso = $request->url_video_curso;
+        // $curso->imagen_curso = $request->imagen_curso;
+        // $curso->save();
+        // return redirect()->route('cursos.show', $curso);
     }
-    public function edit(Curso $curso)
+    public function show($id)
     {
-        return view('cursos.cursosEdit', compact('curso'));
+        $url= env('URL_SERVER_API', 'http://127.0.0.1');
+        $response= Http::get($url.'/cursos/'.$id);
+        $data = $response->json();
+        return view('cursos.cursosId', compact('data'));
+
+        // $curso = Curso::find($id);
+        // return view('cursos.cursosId', compact('curso'));
+
     }
-    public function update(Curso $curso){
-        $curso->nombre_curso = request('nombre_curso');
-        $curso->descripcion_curso = request('descripcion_curso');
-        $curso->categoria_curso = request('categoria_curso');
-        $curso->precio_curso = request('precio_curso');
-        $curso->url_video_curso = request('url_video_curso');
-        $curso->imagen_curso = request('imagen_curso');
-        $curso->save();
-        return redirect()->route('cursos.show', $curso);
+    public function edit($id)
+    {
+        $url= env('URL_SERVER_API', 'http://127.0.0.1');
+        $response= Http::get($url.'/cursos/edit/'.$id);
+        $curso = $response->json();
+        return view('cursos.cursosEdit', compact('curso'));
+
+        // return view('cursos.cursosEdit', compact('curso'));
+    }
+    public function update(Request $request){
+        $url= env('URL_SERVER_API', 'http://127.0.0.1');
+        $response = Http::put($url.'/cursos/'.$request->id, [
+            'nombre_curso' => $request->nombre_curso, //nombre_curso es el nombre del campo en el formulario
+            'descripcion_curso' => $request->descripcion_curso,
+            'categoria_curso' => $request->categoria_curso,
+            'precio_curso' => $request->precio_curso,
+            'url_video_curso' => $request->url_video_curso,
+            'imagen_curso' => $request->imagen_curso,
+        ]);
+        $data = $response->json();
+        return redirect()->route('cursos.show', $request['id']);
+        
+        // $curso->nombre_curso = request('nombre_curso');
+        // $curso->descripcion_curso = request('descripcion_curso');
+        // $curso->categoria_curso = request('categoria_curso');
+        // $curso->precio_curso = request('precio_curso');
+        // $curso->url_video_curso = request('url_video_curso');
+        // $curso->imagen_curso = request('imagen_curso');
+        // $curso->save();
+        // return redirect()->route('cursos.show', $curso);
+    }
+    public function delete($id)
+    {
+        $url= env('URL_SERVER_API', 'http://127.0.0.1');
+        $response = Http::delete($url.'/cursos/'.$id);
+        return redirect()->route('cursos');
     }
 }
