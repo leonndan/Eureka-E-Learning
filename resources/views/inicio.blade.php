@@ -1,3 +1,8 @@
+<style>
+    #botman-costume{
+        background-color: red;
+    }
+</style>
 <x-app-layout>
     <x-slot name="header">
         <h1 class="text-center display-4">Eureka E-Learning Easy</h1>
@@ -21,6 +26,23 @@
         <div class="mb-4">
             <h1 class="display-4">ALGUNOS DE NUESTROS CLIENTES</h1>
         </div>
+        
+        <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+        <div id="botman-costume"></div>
+        <script>
+            var botmanWidget = {
+                    frameEndpoint: "/botman/chat",
+                    chatServer: "/botman",
+                    aboutText: '/',
+                    mainColor:  "#041D5B",
+                    bubbleBackground: "#041D5B",  
+                    title: "Chat Bot",
+                    introMessage: "Hola"
+                };
+               
+        </script>
+        </div>
     </div>
-  
+    
+    
 </x-app-layout>

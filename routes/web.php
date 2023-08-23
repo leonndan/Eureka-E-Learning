@@ -47,5 +47,5 @@ Route::middleware(["auth","admin"])-> group(function()
     Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
 });
 
-Route::match(["get","post"],"/botman",[botmanController::class,"handle"]);
+Route::match(["get","post"],"/botman",[BotManController::class,"handle"]);
 
