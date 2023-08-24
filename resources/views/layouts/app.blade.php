@@ -46,7 +46,8 @@
     </body>
     <footer class="border-top footer">
         <div class="container">
-            &copy; 2023 - Eureka E-learning Easy - <a href="https://github.com/leonndan">leonndan</a>            
+            &copy; 2023 - Eureka E-learning Easy - <a href="https://github.com/leonndan">leonndan</a>
+            <a href="https://github.com/AnderTorne">Randa</a>           
         </div>
   </footer>
 </html>

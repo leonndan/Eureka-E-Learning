@@ -18,59 +18,89 @@ class BotManController extends Controller
     public function handle()
     {
         $botman = app('botman');
-        $botman->hears('{message}', function($botman, $message) {
-        if ($message == 'Hola')
-         {
-           $this->pregunta_inicio($botman);
-         }
-         else
-         {
-           $botman->reply("Escribe Hola para comenzar...");
-         }
-      });
+        $botman->hears("Hola", function ($botman) {
+            $botman->reply("En que te puedo ayudar?");
+        });
+        $botman->hears("Informacion", function ($botman) {
+            $this->Informacion($botman);
+        });
+        $botman->hears("Asesoramiento", function ($botman) {
+            $this->Asesoramiento($botman);
+        });
+        $botman->hears("Servicios", function ($botman) {
+            $this->Servicios($botman);
+        });
+        $botman->hears("Contacto", function ($botman) {
+            $this->Contacto($botman);
+        });
+        $botman->hears("Redes", function ($botman) {
+            $this->Redes($botman);
+        });
 
-      $botman->listen();
+        $botman->fallback(function ($botman) {
+            $botman->reply("Lo siento, no entendí tu mensaje. ¿En qué te puedo ayudar?");
+        });    
+        
+        $botman->listen();
+    }
+    /*
+    public function pregunta_inicio($botman)
+    {
+        $pregunta = Question::create("En qué te puedo ayudar?")
+            ->addButtons([
+                Button::create("Informacion")->value("uno"),
+                Button::create("Asesoramiento")->value("dos"),
+                Button::create("Servicios")->value("tres"),
+                Button::create("Cita")->value("cuatro"),
+                Button::create("Contacto")->value("cinco"),
+                Button::create("Redes")->value("seis"),
+            ]);
 
-      }
-      public function pregunta_inicio($botman)
-      {
-
-        $pregunta=Question::create("En que te puedo ayudar?")->addButtons([
-
-            Button::create("Informacion")->value("uno"),
-            Button::create("Asesoramiento")->value("dos"),
-            Button::create("Servicios")->value("tres"),
-            Button::create("Cita")->value("cuatro"),
-            Button::create("Contacto")->value("cinco"),
-            Button::create("Redes")->value("seis"),
-            
-        ]);
-
-        $botman->ask($pregunta,function (Answer $answer) {
+        $botman->ask($pregunta, function (Answer $answer,$botman){
             $selectedOption = $answer->getValue();
 
             if ($selectedOption === 'uno') {
-                $this->say('Has seleccionado la Opción A.');
+                 $this->say("Eureka E-Learning Easy es una consultoria educativa para maestras de nivel preescolar, donde puedes encontrar cursos y asesoramientos para diferentes planes");
             } elseif ($selectedOption === 'dos') {
-                $this->say('Has seleccionado la Opción B.');
+                // ... lógica para la opción "Asesoramiento" ...
             } elseif ($selectedOption === 'tres') {
                 $this->say('Has seleccionado la Opción C.');
-            } 
-            elseif ($selectedOption === 'cuatro') {
+            } elseif ($selectedOption === 'cuatro') {
                 $this->say('Has seleccionado la Opción C.');
-            } 
-            elseif ($selectedOption === 'cinco') {
+            } elseif ($selectedOption === 'cinco') {
                 $this->say('Has seleccionado la Opción C.');
-            } 
-            elseif ($selectedOption === 'seis') {
+            } elseif ($selectedOption === 'seis') {
                 $this->say('Has seleccionado la Opción C.');
             } else {
                 $this->say('No entiendo tu selección.');
-                $this->handle();
             }
         });
+       
+    }
+    */
+    public function Informacion($botman)
+    {
+        $botman->reply("Eureka E-Learning Easy es una consultoria educativa para maestras de nivel preescolar, donde puedes encontrar cursos y asesoramientos para diferentes planes");
+    }
 
-      }
+    public function Asesoramiento($botman)
+    {
+        $botman->reply("Para tener un asesoramiento favor de mandar un mensaje en la parte de contacto y un agente pronto te respodnera.");
+    }
+    public function Servicios($botman)
+    {
+        $botman->reply("Eureka cuenta con multiples servicios como lo pueden ser : Cursos, Regulaciones, Planes de estudio, Diplomados. Puedes encontrar mas en la parte de Servicios.");
+    }
+    public function Contacto($botman)
+    {
+        $botman->reply("Email: eurekaelearningeasy@gmail.com");
+    }
+    public function Redes($botman)
+    {
+        $botman->reply("Facebook: Eureka E-Learning easy");
+        $botman->reply("Instagram: eureka_elearning_easy");
+    }
+
       
 }
 
