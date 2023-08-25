@@ -8,7 +8,7 @@ class CreateContactoTable extends Migration
 {
     public function up()
     {
-        Schema::create('contacto', function (Blueprint $table) {
+        Schema::create('contactos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('correo');

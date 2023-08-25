@@ -13,7 +13,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="#">
+                  <a class="nav-link text-light" href="{{ route('cursos')}}">
                     IMPRIMIR
                   </a>
                 </li>
@@ -40,11 +40,17 @@
                             </div>
                         </div>
                     </div>
+                    @php
+                        $url= env('URL_SERVER_API', 'http://127.0.0.1');
+                        $response= Http::get($url.'/cursos');
+                        $data = $response->json();
+                        $totalCursos= count($data);
+                    @endphp 
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">Cursos</h3>
-                                <p class="card-text">Total de cursos: </p>
+                                <p class="card-text">Total de cursos: {{$totalCursos}}</p>
                             </div>
                         </div>
                     </div>
