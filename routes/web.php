@@ -38,6 +38,10 @@ Route::middleware([
     // Route::put('/cursos/{curso}', [CursoController::class, 'update'])->name('cursos.update');
     Route::post('/cursos/update', [CursoController::class, 'update'])->name('cursos.update');
     Route::get('/cursos/delete/{curso}', [CursoController::class, 'delete'])->name('cursos.delete');
+
+    // Route::get('/cursos', [SubCursoController::class,'index'])->name('subcursos');
+    // Route::get('/cursos/create', [SubCursoController::class, 'create'])->name('subcursos.create');
+    // Route::post('/cursos', [SubCursoController::class, 'store'])->name('subcursos.store');
 });
 
 

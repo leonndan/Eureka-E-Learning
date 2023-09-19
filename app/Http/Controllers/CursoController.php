@@ -13,9 +13,6 @@ class CursoController extends Controller
         $url= env('URL_SERVER_API', 'http://127.0.0.1');
         $response= Http::get($url.'/cursos');
         $data = $response->json();
-        // foreach($data as $curso){
-        //     echo $curso['nombre_curso'].' - '.$curso['descripcion_curso'];
-        // }
         // $cursos = Curso::all();
         // $cursos = Curso::paginate(5);
         return view('cursos.cursos',compact('data'));
@@ -55,8 +52,10 @@ class CursoController extends Controller
         $url= env('URL_SERVER_API', 'http://127.0.0.1');
         $response= Http::get($url.'/cursos/'.$id);
         $data = $response->json();
-        return view('cursos.cursosId', compact('data'));
 
+        return view('cursos.cursosId', compact('data'));
+        // return view('cursos.cursosPrueba', compact('data'));
+        
         // $curso = Curso::find($id);
         // return view('cursos.cursosId', compact('curso'));
 

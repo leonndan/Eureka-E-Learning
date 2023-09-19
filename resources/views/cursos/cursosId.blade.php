@@ -1,32 +1,83 @@
 <x-app-layout>
     <x-slot name="header">
-
-    <div class="d-flex justify-content-between align-items-center">
-        <a href="{{route('cursos')}}" class="btn btn-primary mb-2"> < Todos los cursos</a>
-        <a href="{{route('cursos.edit',$data['id'])}}" class="btn btn-primary mb-2 "> Editar curso</a>
+    <div class="d-flex justify-content-between"> 
+        <div class=" align-items-start">
+            <a href="{{route('cursos')}}" class="btn btn-primary mb-2"> < Todos los cursos</a>
+        </div>
+        <div class="align-items-end">
+            <a href="{{route('cursos.edit',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Editar curso</a>
+            <a href="" class="btn btn-primary mb-2 "> Agregar Video</a>
+        </div>
     </div>
 </x-slot>
 
-    <div class="container">
+    <div class="container" role="main">
         <div class="row">
-            <div class="card mb-4"  >
-                <div class="card-body">
-                    <iframe 
-                        width="1024" height="576" src="https://www.youtube.com/embed/{{$data['url_video_curso']}}" 
-                        title="YouTube video player" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
-
-                    <h2 class="card-title">Curso: {{$data['nombre_curso']}}</h2>
-                    <h3 class="card-text">Categoria: {{$data['descripcion_curso']}}</h3>
-                    <h3 class="card-text">Precio: {{$data['precio_curso']}}</h3>
-                    <h3 class="card-text">Valoracion: {{$data['calificacion_curso']}}/5</h3>
+            <div class="row g-5">
+                <h2 class="card-title">Curso: {{$data[0]['nombre_curso']}}</h2>
+                <div class="col-md-7 col-lg-8">
                     
+                    <div class="ratio ratio-16x9">
+                        <iframe 
+                            src="https://www.youtube.com/embed/{{$data[0]['url_video_curso']}}" 
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <h3 class="card-text">Categoria: {{$data[0]['descripcion_curso']}}</h3>
+                    <h3 class="card-text">Precio: {{$data[0]['precio_curso']}}</h3>
+                    <h3 class="card-text">Valoracion: {{$data[0]['calificacion_curso']}}/5</h3>
+                </div>
+                <div class="col-md-5 col-lg-4 order-md-last">
+
+                    <div class="list-group">
+                        @foreach ($data[1] as $subcurso)
+                            <ul class="list-group ">
+                                @if ($subcurso['activo'] == 1)
+                                        <a href="">
+                                            <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                <img src="{{$subcurso['imagen']}}" alt="" style="width: 70px; height: 70px">
+                                                    <div class="ms-3">
+                                                        <p class="fw-bold mb-2">{{$subcurso['subtitulo']}}</p>
+                                                        <p class="text-muted mb-0">{{$subcurso['descripcion']}}</p>
+                                                </div>
+                                                </div>
+                                            </li>
+                                        </a>
+                                    </ul>
+                                @else
+                                    <a href="">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                            <img src="{{$subcurso['imagen']}}" alt="" style="width: 70px; height: 70px">
+                                                <div class="ms-3">
+                                                    <p class="fw-bold mb-2">{{$subcurso['subtitulo']}}</p>
+                                                    <p class="text-muted mb-0">{{$subcurso['descripcion']}}</p>
+                                            </div>
+                                            </div>
+                                        </li>                                        
+                                    </a>
+                                @endif
+                            </ul>
+                        @endforeach
+
+                        {{-- <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                          <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{$subcurso['subtitulo']}}</h5>
+                          </div>
+                          <p class="mb-1">{{$subcurso['descripcion']}}</p>
+                          <aside><img src="{{$subcurso['imagen']}}" class="bd-placeholder-img card-img-top" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" alt="" ></aside>
+                        </a> --}}
+                    </div>
                 </div>
             </div>
         </div>
+        
     </div> 
+    
 
     
 </x-app-layout>
