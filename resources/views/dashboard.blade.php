@@ -13,12 +13,12 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="{{ route('cursos')}}">
+                  <a class="nav-link text-light" href="">
                     IMPRIMIR
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="#">
+                  <a class="nav-link text-light" href={{route('cursos')}}>
                     CURSOS
                   </a>
                 </li>
