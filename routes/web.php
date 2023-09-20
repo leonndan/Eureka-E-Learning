@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BotManController;
+use App\Http\Controllers\SubCursoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,9 +41,9 @@ Route::middleware([
     Route::post('/cursos/update', [CursoController::class, 'update'])->name('cursos.update');
     Route::get('/cursos/delete/{curso}', [CursoController::class, 'delete'])->name('cursos.delete');
 
-    // Route::get('/cursos', [SubCursoController::class,'index'])->name('subcursos');
-    // Route::get('/cursos/create', [SubCursoController::class, 'create'])->name('subcursos.create');
-    // Route::post('/cursos', [SubCursoController::class, 'store'])->name('subcursos.store');
+    Route::get('/cursos/subcurso', [SubCursoController::class,'index'])->name('subcursos.index');
+    Route::get('/cursos/{id}/subcurso/create', [SubCursoController::class, 'create'])->name('subcursos.create');
+    Route::post('/cursos/{id}/subcurso', [SubCursoController::class, 'store'])->name('subcursos.store');
 });
 
 

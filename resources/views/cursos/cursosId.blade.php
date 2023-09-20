@@ -6,7 +6,8 @@
         </div>
         <div class="align-items-end">
             <a href="{{route('cursos.edit',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Editar curso</a>
-            <a href="" class="btn btn-primary mb-2 "> Agregar Video</a>
+            <a href="{{route('subcursos.create',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Agregar Video</a>
+            {{-- <a href="{{route('subcursos.create')}}" class="btn btn-primary mb-2 "> Agregar Video</a> --}}
         </div>
     </div>
 </x-slot>
@@ -14,18 +15,17 @@
     <div class="container" role="main">
         <div class="row">
             <div class="row g-5">
-                <h2 class="card-title">Curso: {{$data[0]['nombre_curso']}}</h2>
                 <div class="col-md-7 col-lg-8">
                     
                     <div class="ratio ratio-16x9">
                         <iframe 
-                            src="https://www.youtube.com/embed/{{$data[0]['url_video_curso']}}" 
-                            title="YouTube video player" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-
+                        src="https://www.youtube.com/embed/{{$data[0]['url_video_curso']}}" 
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                    <h2 class="card-title">Curso: {{$data[0]['nombre_curso']}}</h2>
                     <h3 class="card-text">Categoria: {{$data[0]['descripcion_curso']}}</h3>
                     <h3 class="card-text">Precio: {{$data[0]['precio_curso']}}</h3>
                     <h3 class="card-text">Valoracion: {{$data[0]['calificacion_curso']}}/5</h3>
