@@ -1,16 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
-    <div class="d-flex justify-content-between"> 
-        <div class=" align-items-start">
-            <a href="{{route('cursos')}}" class="btn btn-primary mb-2"> < Todos los cursos</a>
+        <div class="d-flex justify-content-between"> 
+            <div class=" align-items-start">
+                <a href="{{route('cursos')}}" class="btn btn-primary mb-2"> < Todos los cursos</a>
+            </div>
+            <div class="align-items-end">
+                {{-- <a href="{{route('cursos.edit',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Editar curso</a> --}}
+                {{-- <a href="{{route('subcursos.create',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Agregar Video</a> --}}
+
+            </div>
         </div>
-        <div class="align-items-end">
-            <a href="{{route('cursos.edit',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Editar curso</a>
-            <a href="{{route('subcursos.create',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Agregar Video</a>
-            {{-- <a href="{{route('subcursos.create')}}" class="btn btn-primary mb-2 "> Agregar Video</a> --}}
-        </div>
-    </div>
-</x-slot>
+    </x-slot>
 
     <div class="container" role="main">
         <div class="row">
@@ -19,24 +19,22 @@
                     
                     <div class="ratio ratio-16x9">
                         <iframe 
-                        src="https://www.youtube.com/embed/{{$data[0]['url_video_curso']}}" 
+                        src="https://www.youtube.com/embed/{{$data[0]['video']}}" 
                         title="YouTube video player" frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen>
                     </iframe>
                 </div>
-                    <h2 class="card-title">Curso: {{$data[0]['nombre_curso']}}</h2>
-                    <h3 class="card-text">Categoria: {{$data[0]['descripcion_curso']}}</h3>
-                    <h3 class="card-text">Precio: {{$data[0]['precio_curso']}}</h3>
-                    <h3 class="card-text">Valoracion: {{$data[0]['calificacion_curso']}}/5</h3>
+                    <h2 class="card-title">Curso: {{$data[0]['subtitulo']}}</h2>
+                    <h3 class="card-text">Categoria: {{$data[0]['descripcion']}}</h3>
+                    <h3 class="card-text">Precio: {{$data[1]['precio_curso']}}</h3>
+                    <h3 class="card-text">Valoracion: {{$data[1]['calificacion_curso']}}/5</h3>
                 </div>
                 <div class="col-md-5 col-lg-4 order-md-last">
 
                     <div class="list-group">
-                        @foreach ($data[1] as $subcurso)
+                        @foreach ($data[2] as $subcurso)
                             <ul class="list-group ">
-                                {{$data[0]['id']}}
-                                {{$subcurso['id']}}
                                 <a href="{{route('subcursos.show',$subcurso['id'])}}">
                                 @if ($subcurso['activo'] == 1)
                                         <a href="{{route('subcursos.show',$subcurso['id'])}}">
@@ -78,7 +76,7 @@
             </div>
         </div>
         
-    </div> 
+    </div>
     
 
     

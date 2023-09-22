@@ -11,7 +11,20 @@ class SubCursoController extends Controller
     public function index()
     {
         // $url= env('URL_SERVER_API', 'http://127.0.0.1');
-        return view('cursos.cursosSubCursoCreate');
+        return view('');
+
+    }
+    public function show($id)
+    {
+        $url= env('URL_SERVER_API', 'http://127.0.0.1');
+        $response= Http::get($url.'/cursos/subcurso/'.$id);
+        $data = $response->json();
+
+        return view('cursos.subCursosId', compact('data'));
+        // return view('cursos.cursosPrueba', compact('data'));
+        
+        // $curso = Curso::find($id);
+        // return view('cursos.cursosId', compact('curso'));
 
     }
     public function create($id)

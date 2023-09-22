@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BotManController;
 use App\Http\Controllers\SubCursoController;
+use App\Models\Curso;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,7 @@ Route::middleware([
     Route::get('/cursos', [CursoController::class,'index'])->name('cursos'); 
     Route::get('/cursos/create', [CursoController::class, 'create'])->name('cursos.create');
     Route::post('/cursos', [CursoController::class, 'store'])->name('cursos.store');
-    Route::get('/cursos/{id}', [CursoController::class, 'show'])->name('cursos.show');
+    Route::get('/cursos/{id}', [CursoController::class, 'show'],[SubCursoController::class, ''])->name('cursos.show');
     Route::get('/cursos/edit/{curso}', [CursoController::class, 'edit'])->name('cursos.edit');
     // Route::put('/cursos/{curso}', [CursoController::class, 'update'])->name('cursos.update');
     Route::post('/cursos/update', [CursoController::class, 'update'])->name('cursos.update');
@@ -44,6 +45,7 @@ Route::middleware([
     Route::get('/cursos/subcurso', [SubCursoController::class,'index'])->name('subcursos.index');
     Route::get('/cursos/{id}/subcurso/create', [SubCursoController::class, 'create'])->name('subcursos.create');
     Route::post('/cursos/{id}/subcurso', [SubCursoController::class, 'store'])->name('subcursos.store');
+    Route::get('/cursos/subcurso/{id}', [SubCursoController::class, 'show'])->name('subcursos.show');
 });
 
 
