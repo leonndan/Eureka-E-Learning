@@ -5,8 +5,8 @@
                 <a href="{{route('cursos')}}" class="btn btn-primary mb-2"> < Todos los cursos</a>
             </div>
             <div class="align-items-end">
-                {{-- <a href="{{route('cursos.edit',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Editar curso</a> --}}
-                {{-- <a href="{{route('subcursos.create',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Agregar Video</a> --}}
+                <a href="{{route('cursos.edit',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Editar curso</a>
+                <a href="{{route('subcursos.create',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Agregar Video</a>
 
             </div>
         </div>

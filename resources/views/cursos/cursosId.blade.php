@@ -19,14 +19,14 @@
                     
                     <div class="ratio ratio-16x9">
                         <iframe 
-                        src="https://www.youtube.com/embed/{{$data[0]['url_video_curso']}}" 
+                        src="https://www.youtube.com/embed/{{$data[1][0]['video']}}" 
                         title="YouTube video player" frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen>
                     </iframe>
                 </div>
-                    <h2 class="card-title">Curso: {{$data[0]['nombre_curso']}}</h2>
-                    <h3 class="card-text">Categoria: {{$data[0]['descripcion_curso']}}</h3>
+                    <h2 class="card-title">Curso: {{$data[1][0]['subtitulo']}}</h2>
+                    <h3 class="card-text">Categoria: {{$data[1][0]['descripcion']}}</h3>
                     <h3 class="card-text">Precio: {{$data[0]['precio_curso']}}</h3>
                     <h3 class="card-text">Valoracion: {{$data[0]['calificacion_curso']}}/5</h3>
                 </div>
@@ -35,8 +35,8 @@
                     <div class="list-group">
                         @foreach ($data[1] as $subcurso)
                             <ul class="list-group ">
-                                {{$data[0]['id']}}
-                                {{$subcurso['id']}}
+                                {{-- {{$data[0]['id']}}
+                                {{$subcurso['id']}} --}}
                                 <a href="{{route('subcursos.show',$subcurso['id'])}}">
                                 @if ($subcurso['activo'] == 1)
                                         <a href="{{route('subcursos.show',$subcurso['id'])}}">
