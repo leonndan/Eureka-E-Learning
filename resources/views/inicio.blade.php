@@ -23,13 +23,13 @@
             <div class="container mt-5">
                 <div class="row">
                   <div class="col-md-4">
-                    <img src="https://scontent-qro1-2.xx.fbcdn.net/v/t39.30808-6/279807352_407578108037533_9209168661799013001_n.png?_nc_cat=106&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeF_Vs2Y3HUr4jCnMzD80Eca2QCsryS_zVXZAKyvJL_NVSqWGw6VAkDL0tfgUlxmfceuLyxVkRpeTqQK5xerhj-i&_nc_ohc=ywQV4KV20vIAX8nfk88&_nc_ht=scontent-qro1-2.xx&oh=00_AfCUZd58lt9q2pNGy27Ghd8QqftiNt6VDlKnNePU2cAtOA&oe=64EC8BB5" alt="" class="img-fluid rounded-circle">
+                    <img src="https://i.ibb.co/YkSfwh1/343406554-1177265499651243-7227673687122816031-n.jpg" alt="" class="img-fluid rounded-circle">
                   </div>
                   <div class="col-md-4">
-                    <img src="https://scontent-qro1-1.xx.fbcdn.net/v/t39.30808-6/341143228_1138787880413506_1909102828464435370_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeF4Sw2mPcr6KCxXebYOA6LUBRQf-oYsZG8FFB_6hixkb9_9C3wnJTGtGBkAVPpyuN4Zwlq5FasG8lFGBEPUadiM&_nc_ohc=SWzCq3KtSXgAX9c4Tfr&_nc_ht=scontent-qro1-1.xx&oh=00_AfAyDjbNokoaCzyj3vR5y5iM4v_3OO3JgzUhgEPHkvPH1g&oe=64EC35E4" alt="" class="img-fluid rounded-circle">
+                    <img src="https://i.ibb.co/2ZMbNNS/279807352-407578108037533-9209168661799013001-n.png" alt="" class="img-fluid rounded-circle">
                   </div>
                   <div class="col-md-4">
-                    <img src="https://scontent-qro1-1.xx.fbcdn.net/v/t39.30808-6/305995526_504576915007266_6973592736245455559_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeGm5ifnUIgZTvgYLzVDdNq21KQNE2B_5ODUpA0TYH_k4KlYe0goGauv04V-j6i91ZYlgrnEKrQgiE4Yk1G_JzNX&_nc_ohc=2av636tJNu8AX-_1X6N&_nc_ht=scontent-qro1-1.xx&oh=00_AfAiKcYMsIPsBijJ_XGJZ13Qfgfmrz0eH5MNRRdiGLWcng&oe=64ED88F5"alt="" class="img-fluid rounded-circle">
+                    <img src="https://i.ibb.co/4NxP3FT/341143228-1138787880413506-1909102828464435370-n.jpg"alt="" class="img-fluid rounded-circle">
                   </div>
                 </div>
             </div>
