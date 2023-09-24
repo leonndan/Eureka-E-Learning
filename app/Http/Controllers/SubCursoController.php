@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Curso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\SubCurso;

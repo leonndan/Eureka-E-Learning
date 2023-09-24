@@ -5,7 +5,7 @@
   <title>Añadir videos al cursos</title>
   
   <form action="{{route('subcursos.store',$id)}}" method="POST">
-  <form action="{{route('subcursos.store',compact('id'))}}" method="POST">
+  {{-- <form action="{{route('subcursos.store',compact('id'))}}" method="POST"> --}}
       @csrf
       <div class="mb-3">
           <label for="subtitulo" class="form-label">Nombre del subcurso {{$id}}</label>
@@ -29,6 +29,6 @@
       
       <button class="btn btn-primary" type="submit">Agregar curso</button>
       
-  {{-- </form> --}}
+  </form>
 
 </x-app-layout>
