@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BotManController;
 use App\Http\Controllers\SubCursoController;
+use App\Http\Controllers\CommentController;
 use App\Models\Curso;
 
 /*
@@ -48,6 +49,11 @@ Route::middleware([
     Route::get('/cursos/subcurso/{id}', [SubCursoController::class, 'show'])->name('subcursos.show');
     Route::get('/cursos/subcurso/edit/{subcurso}', [SubCursoController::class, 'edit'])->name('subcursos.edit');
     Route::post('/cursos/subcurso/update', [SubCursoController::class, 'update'])->name('subcursos.update');
+
+    //comments
+    Route::post('/cursos/subcurso/{id}/comment', [CommentController::class, 'store'])->name('comments.store');
+    Route::post('/cursos/subcursos/{id}/comment', [CommentController::class, 'store2'])->name('comments.store2');
+
 });
 
 

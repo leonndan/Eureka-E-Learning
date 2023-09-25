@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Curso;
+use App\Models\Comment;
 
 class CursoController extends Controller
 {
@@ -52,8 +53,9 @@ class CursoController extends Controller
         $url= env('URL_SERVER_API', 'http://127.0.0.1');
         $response= Http::get($url.'/cursos/'.$id);
         $data = $response->json();
+        $comments = Comment::where('curso_id', $id)->get();
 
-        return view('cursos.cursosId', compact('data'));
+        return view('cursos.cursosId', compact('data','comments'));
         // return view('cursos.cursosPrueba', compact('data'));
         
         // $curso = Curso::find($id);

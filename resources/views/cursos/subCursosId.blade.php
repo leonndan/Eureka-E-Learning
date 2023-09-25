@@ -12,62 +12,6 @@
         </div>
     </x-slot>
 
-    {{-- <div class="container" role="main">
-        <div class="row">
-            <div class="row g-5">
-                <div class="col-md-7 col-lg-8">
-                    
-                    <div class="ratio ratio-16x9">
-                        <iframe 
-                        src="https://www.youtube.com/embed/{{$data[0]['video']}}" 
-                        title="YouTube video player" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                    <h2 class="card-title">Curso: {{$data[0]['subtitulo']}}</h2>
-                    <h3 class="card-text">Categoria: {{$data[0]['descripcion']}}</h3>
-                    <h3 class="card-text">Precio: {{$data[1]['precio_curso']}}</h3>
-                    <h3 class="card-text">Valoracion: {{$data[1]['calificacion_curso']}}/5</h3>
-                </div>
-                <div class="col-md-5 col-lg-4 order-md-last">
-
-                    <div class="list-group">
-                        @foreach ($data[2] as $subcurso)
-                            <ul class="list-group ">
-                                <a href="{{route('subcursos.show',$subcurso['id'])}}">
-                                @if ($subcurso['id'] == $data[0]['id'])
-                                        <a href="{{route('subcursos.show',$subcurso['id'])}}">
-                                            <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                <img src="{{$subcurso['imagen']}}" alt="" style="width: 70px; height: 70px">
-                                                    <div class="ms-3">
-                                                        <p class="fw-bold mb-2">{{$subcurso['subtitulo']}}</p>
-                                                        <p class="text-muted mb-0">{{$subcurso['descripcion']}}</p>
-                                                </div>
-                                                </div>
-                                            </li>
-                                        </a>
-                                    </ul>
-                                @else
-                                <a href="{{route('subcursos.show',$subcurso['id'])}}">                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                            <img src="{{$subcurso['imagen']}}" alt="" style="width: 70px; height: 70px">
-                                                <div class="ms-3">
-                                                    <p class="fw-bold mb-2">{{$subcurso['subtitulo']}}</p>
-                                                    <p class="text-muted mb-0">{{$subcurso['descripcion']}}</p>
-                                            </div>
-                                            </div>
-                                        </li>                                        
-                                    </a>
-                                @endif
-                            </ul>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <!-- Page content-->
     <div class="container mt-5">
         <div class="row">
@@ -107,40 +51,26 @@
                         <div class="card-body">
                             <!-- Comment form-->
                             <h2 class="fw-bolder mb-4 mt-5">Comentarios</h2>
-                            <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
-                            <!-- Comment with nested comments-->
-                            <div class="d-flex mb-4">
-                                <!-- Parent comment-->
-                                <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                <div class="ms-3">
-                                    <div class="fw-bold">Commenter Name</div>
-                                    If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                                    <!-- Child comment 1-->
-                                    <div class="d-flex mt-4">
-                                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                        <div class="ms-3">
-                                            <div class="fw-bold">Commenter Name</div>
-                                            And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
-                                        </div>
-                                    </div>
-                                    <!-- Child comment 2-->
-                                    <div class="d-flex mt-4">
-                                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                        <div class="ms-3">
-                                            <div class="fw-bold">Commenter Name</div>
-                                            When you put money directly to a problem, it makes a good headline.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <form action="{{route('comments.store', $data[0]['id'])}}" method="POST" class="mb-4">
+                                @csrf
+                                <textarea class="form-control" rows="3" name="comment_body" placeholder="Qué te parece este curso?"></textarea>
+                                <button class="btn btn-primary" type="submit">Comentar</button>
+                            </form>
                             <!-- Single comment-->
-                            <div class="d-flex">
-                                <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                <div class="ms-3">
-                                    <div class="fw-bold">Commenter Name</div>
-                                    When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
-                                </div>
+                            <h3 class="fw-bolder mb-4 mt-5">Comentarios de este curso</h3>
+                            @forelse ($comments as $item)
+                            <div class="card card-body shadow-sm ms-3 mt-3">
+                                    <div class="detail-area">
+                                        <div class="fw-bold">
+                                            {{$item['user']['name']}}
+                                            <small class="ms-3 text-primary">Comentario creado: {{$item['created_at']->format('d-m-y')}}</small>
+                                        </div>
+                                    </div>
+                                    {{$item['comment_body']}}
                             </div>
+                            @empty
+                            <h6>No hay comentarios</h6>
+                            @endforelse
                         </div>
                     </div>
                 </section>

@@ -6,6 +6,8 @@ use App\Models\Curso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\SubCurso;
+use App\Models\Comment;
+use App\Http\Controllers\CommentController;
 
 class SubCursoController extends Controller
 {
@@ -20,8 +22,9 @@ class SubCursoController extends Controller
         $url= env('URL_SERVER_API', 'http://127.0.0.1');
         $response= Http::get($url.'/cursos/subcurso/'.$id);
         $data = $response->json();
+        $comments = Comment::where('curso_id', $id)->get();
 
-        return view('cursos.subCursosId', compact('data'));
+        return view('cursos.subCursosId', compact('data','comments'));
         // return view('cursos.cursosPrueba', compact('data'));
         
         // $curso = Curso::find($id);
