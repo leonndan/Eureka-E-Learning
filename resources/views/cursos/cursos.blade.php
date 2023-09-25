@@ -1,6 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <h1>Pagina cursos</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Pagina cursos</h1>
+            <a href="{{ route('cursos.create') }}" class="btn btn-primary mb-4">Crear curso</a>
+        </div>
     </x-slot>
 
     <div class="container mt-5">
@@ -50,7 +53,6 @@
     </div>  --}}
 
     <div class="container">
-        <a href="{{ route('cursos.create') }}" class="btn btn-primary mb-4">Crear curso</a>
         <div class="row">
             @foreach ($data as $curso)
                 <div class="col-4">

@@ -1,6 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <h1>Editar cursos</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Editar cursos</h1>
+            <a href="{{route('subcursos.show',$curso['id'])}}" class="btn btn-primary d-flex justify-content-between align-items-center">Regresar al curso</a>
+        </div>
     </x-slot>
     <title>Editar cursos</title>
 
@@ -8,7 +11,6 @@
     {{-- <form action="{{route('cursos.update',$curso)}}" method="POST"> --}}
         @csrf
         {{-- @method('put') --}}
-        <a href="{{route('subcursos.show',$curso['id'])}}" class="btn btn-primary">Regresar al curso</a>
         <input type="hidden" name="id" value="{{$curso['id']}}">
         <div class="mb-3">
             <label for="subtitulo" class="form-label">Nombre del video</label>
