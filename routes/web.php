@@ -45,8 +45,9 @@ Route::middleware([
     Route::get('/cursos/subcurso', [SubCursoController::class,'index'])->name('subcursos.index');
     Route::get('/cursos/{id}/subcurso/create', [SubCursoController::class, 'create'])->name('subcursos.create');
     Route::post('/cursos/{id}/subcurso', [SubCursoController::class, 'store'])->name('subcursos.store');
-    Route::post('/cursos/subcurso', [SubCursoController::class, 'storeSub'])->name('subcursos.storeSub');
     Route::get('/cursos/subcurso/{id}', [SubCursoController::class, 'show'])->name('subcursos.show');
+    Route::get('/cursos/subcurso/edit/{subcurso}', [SubCursoController::class, 'edit'])->name('subcursos.edit');
+    Route::post('/cursos/subcurso/update', [SubCursoController::class, 'update'])->name('subcursos.update');
 });
 
 
