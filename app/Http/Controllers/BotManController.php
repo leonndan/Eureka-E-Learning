@@ -18,7 +18,7 @@ class BotManController extends Controller
     public function handle()
     {
         $botman = app('botman');
-        $botman->hears("Hola", function ($botman) {
+        $botman->hears('.*Hola|Buenos dias|Buenas tardes|Buenas noches.*', function ($botman) {
             $botman->reply("En que te puedo ayudar?");
         });
         $botman->hears("Quiero info sobre los cursos", function ($botman) {
@@ -27,7 +27,7 @@ class BotManController extends Controller
         $botman->hears("Asesoramiento", function ($botman) {
             $this->Asesoramiento($botman);
         });
-        $botman->hears("Que servicios ofrecen", function ($botman) {
+        $botman->hears(".*servicios|servicio.*", function ($botman) {
             $this->Servicios($botman);
         });
         $botman->hears("Que caracteristicas ofrecen", function ($botman) {

@@ -53,8 +53,10 @@ class CursoController extends Controller
         $url= env('URL_SERVER_API', 'http://127.0.0.1');
         $response= Http::get($url.'/cursos/'.$id);
         $data = $response->json();
-        $comments = Comment::where('curso_id', $id)->get();
+        $idsub = $data[0]['id'];
+        $comments = Comment::where('curso_id', $idsub)->get();
 
+        return view('cursos.subCursosId', compact('data','comments'));
         return view('cursos.cursosId', compact('data','comments'));
         // return view('cursos.cursosPrueba', compact('data'));
         
