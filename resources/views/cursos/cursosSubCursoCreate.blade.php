@@ -8,7 +8,7 @@
   {{-- <form action="{{route('subcursos.store',compact('id'))}}" method="POST"> --}}
       @csrf
       <div class="mb-3">
-          <label for="subtitulo" class="form-label">Nombre del subcurso {{$id}}</label>
+          <label for="subtitulo" class="form-label">Nombre del subcurso</label>
           <input type="text" class="form-control" id="subtitulo" name="subtitulo" required>
       </div>
       <div class="mb-3">
