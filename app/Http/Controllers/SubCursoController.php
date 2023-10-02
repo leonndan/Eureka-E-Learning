@@ -36,7 +36,7 @@ class SubCursoController extends Controller
         return view('cursos.cursosSubCursoCreate',compact('id'));
     }
 
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         $url= env('URL_SERVER_API', 'http://127.0.0.1');
         $response = Http::post($url.'/cursos/subcurso', [
@@ -48,8 +48,10 @@ class SubCursoController extends Controller
             'curso_id' => $request->curso_id,
         ]);
         $data = $response->json();
+        $id = $data['id'];
         // return $data;
-        return redirect()->route('subcursos.show',$id);
+        return redirect()->route('subcursos.show', $id);
+        // return redirect()->route('cursos.show',$id);
     }
     public function edit($id)
     {

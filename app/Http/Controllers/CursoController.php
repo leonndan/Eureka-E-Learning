@@ -57,8 +57,7 @@ class CursoController extends Controller
         $comments = Comment::where('curso_id', $idsub)->get();
 
         return view('cursos.subCursosId', compact('data','comments'));
-        return view('cursos.cursosId', compact('data','comments'));
-        // return view('cursos.cursosPrueba', compact('data'));
+        // return view('cursos.cursosId', compact('data','comments'));
         
         // $curso = Curso::find($id);
         // return view('cursos.cursosId', compact('curso'));
