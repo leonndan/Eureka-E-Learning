@@ -21,22 +21,22 @@ class BotManController extends Controller
         $botman->hears('.*Hola|Buenos dias|Buenas tardes|Buenas noches.*', function ($botman) {
             $botman->reply("En que te puedo ayudar?");
         });
-        $botman->hears("Quiero info sobre los cursos", function ($botman) {
+        $botman->hears("'.*|Curso|Cursos.*'", function ($botman) {
             $this->Informacion($botman);
         });
-        $botman->hears("Asesoramiento", function ($botman) {
+        $botman->hears(".*Asesoramiento.*", function ($botman) {
             $this->Asesoramiento($botman);
         });
         $botman->hears(".*servicios|servicio.*", function ($botman) {
             $this->Servicios($botman);
         });
-        $botman->hears("Que caracteristicas ofrecen", function ($botman) {
+        $botman->hears(".*caracteristicas.*", function ($botman) {
             $this->Servicios($botman);
         });
-        $botman->hears("Contacto", function ($botman) {
+        $botman->hears(".*Contacto.*", function ($botman) {
             $this->Contacto($botman);
         });
-        $botman->hears("Redes", function ($botman) {
+        $botman->hears(".*Redes|Redes sociales.*", function ($botman) {
             $this->Redes($botman);
         });
 
