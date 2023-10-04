@@ -33,9 +33,6 @@ class BotManController extends Controller
         $botman->hears(".*caracteristicas.*", function ($botman) {
             $this->Servicios($botman);
         });
-        $botman->hears(".*Contacto.*", function ($botman) {
-            $this->Contacto($botman);
-        });
         $botman->hears(".*Contacto|contacto.*", function ($botman) {
             $this->Contacto($botman);
         });

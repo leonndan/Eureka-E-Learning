@@ -31,7 +31,7 @@
                             <div class="card-body">
                                 <h3 class="card-title">Usuarios</h3>
                                 <p class="card-text">Total de usuarios registrados: {{$totalUsuarios}} </p>
-                                <p class="card-text">Total de usuarios activos: {{$totalUsuarios}} </p>
+                                {{-- <p class="card-text">Total de usuarios activos: {{$totalUsuarios}} </p> --}}
                             </div>
                         </div>
                     </div>

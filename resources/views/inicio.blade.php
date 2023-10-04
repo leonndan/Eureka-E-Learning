@@ -145,7 +145,7 @@
                
                 <div class="service-card">
                     <h3 class="service-title">Cursos</h3>
-                    <a href="{{ route('servicios') }}" class="details-button">Más detalles</a>
+                    <a href="{{ route('cursos') }}" class="details-button">Más detalles</a>
                 </div>
 
              

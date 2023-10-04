@@ -30,7 +30,7 @@
                         <!-- Post meta content-->
                         {{-- <div class="text-muted fst-italic mb-2">Posted on January 1, 2023 by Start Bootstrap</div> --}}
                         <!-- Post categories-->
-                        <a class="badge bg-secondary text-decoration-none link-light" href="#!">Puntuación: {{$data[0]['calificacion_curso']}}/5</a>
+                        {{-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Puntuación: {{$data[0]['calificacion_curso']}}/5</a> --}}
                         <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{$data[0]['categoria_curso']}}</a>
                     </header>
                     <!-- Preview image figure-->
@@ -129,7 +129,7 @@
                                                 <img src="{{$subcurso['imagen']}}" alt="" style="width: 70px; height: 70px">
                                                     <div class="ms-3">
                                                         <p class="fw-bold mb-2">{{$subcurso['subtitulo']}}</p>
-                                                        <p class="text-muted mb-0">{{$subcurso['descripcion']}}</p>
+                                                        {{-- <p class="text-muted mb-0">{{$subcurso['descripcion']}}</p> --}}
                                                 </div>
                                                 </div>
                                             </li>
@@ -142,7 +142,7 @@
                                         <img src="{{$subcurso['imagen']}}" alt="" style="width: 70px; height: 70px">
                                             <div class="ms-3">
                                                 <p class="fw-bold mb-2">{{$subcurso['subtitulo']}}</p>
-                                                <p class="text-muted mb-0">{{$subcurso['descripcion']}}</p>
+                                                {{-- <p class="text-muted mb-0">{{$subcurso['descripcion']}}</p> --}}
                                             </div>
                                         </div>
                                     </li>                                        
@@ -153,10 +153,10 @@
                     </div>
                 </div>
                 <!-- Actividad widget-->
-                <div class="card mb-4">
+                {{-- <div class="card mb-4">
                     <div class="card-header">Actividad</div>
                     <div class="card-body">Aqui van las actividades</div>
-                </div>
+                </div> --}}
                 
             </div>
         </div>

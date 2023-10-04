@@ -70,11 +70,11 @@
                         <img src="{{ $curso['imagen_curso'] }}" class="bd-placeholder-img card-img-top" width="100%" height="255" preserveAspectRatio="xMidYMid slice" focusable="false" alt="">
                         <div class="card-body">
                             <h5 class="card-title">{{ $curso['nombre_curso'] }}</h5>
-                            <p class="card-text">{{ $curso['descripcion_curso'] }}</p>
+                            {{-- <p class="card-text">{{ $curso['descripcion_curso'] }}</p> --}}
                             <div class="d-flex justify-content-between align-items-center">
                                 <a href="{{ route('cursos.show', $curso['id']) }}" class="btn btn-primary">Ir a curso</a>
                                 {{-- <a href="{{ route('subcursos.show',$curso['id']) }}" class="btn btn-primary">Ir a curso</a> --}}
-                                <small class="text-body-secondary">${{ $curso['precio_curso'] }}</small>
+                                {{-- <small class="text-body-secondary">${{ $curso['precio_curso'] }}</small> --}}
                                 @if($admin=="eurekaelearningeasy@gmail.com")
                                   <a href="{{ route('cursos.delete', $curso['id']) }}" class="btn btn-primary">Borrar curso</a>
                                 @endif
@@ -86,7 +86,7 @@
         </div>
     </div>
     
-    @include('chat');
+    @include('chat')
 
     {{-- {{$cursos->links()}} --}}
 </x-app-layout>
