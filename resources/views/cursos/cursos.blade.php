@@ -1,9 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
+      @php
+      $admin=Auth::user()->email; 
+      @endphp
+      @if($admin=="eurekaelearningeasy@gmail.com")
         <div class="d-flex justify-content-between align-items-center">
             <h1>Pagina cursos</h1>
-            <a href="{{ route('cursos.create') }}" class="btn btn-primary mb-4">Crear curso</a>
+              <a href="{{ route('cursos.create') }}" class="btn btn-primary mb-4">Crear curso</a>
         </div>
+      @else
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>Pagina cursos</h1>
+      </div>
+
+      @endif
     </x-slot>
 
     <div class="container mt-5">
@@ -65,7 +75,9 @@
                                 <a href="{{ route('cursos.show', $curso['id']) }}" class="btn btn-primary">Ir a curso</a>
                                 {{-- <a href="{{ route('subcursos.show',$curso['id']) }}" class="btn btn-primary">Ir a curso</a> --}}
                                 <small class="text-body-secondary">${{ $curso['precio_curso'] }}</small>
-                                <a href="{{ route('cursos.delete', $curso['id']) }}" class="btn btn-primary">Borrar curso</a>
+                                @if($admin=="eurekaelearningeasy@gmail.com")
+                                  <a href="{{ route('cursos.delete', $curso['id']) }}" class="btn btn-primary">Borrar curso</a>
+                                @endif
                             </div>
                         </div>
                     </div>

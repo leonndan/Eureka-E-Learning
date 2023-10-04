@@ -1,12 +1,17 @@
 <x-app-layout>
+    @php
+        $admin=Auth::user()->email;
+    @endphp
     <x-slot name="header">
     <div class="d-flex justify-content-between"> 
         <div class=" align-items-start">
             <a href="{{route('cursos')}}" class="btn btn-primary mb-2"> < Todos los cursos</a>
         </div>
         <div class="align-items-end">
-            <a href="{{route('cursos.edit',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Editar curso</a>
-            <a href="{{route('subcursos.create',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Agregar Video</a>
+            @if($admin=="eurekaelearningeasy@gmail.com")
+                <a href="{{route('cursos.edit',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Editar curso</a>
+                <a href="{{route('subcursos.create',$data[0]['id'])}}" class="btn btn-primary mb-2 "> Agregar Video</a>
+            @endif
             {{-- <a href="{{route('subcursos.create')}}" class="btn btn-primary mb-2 "> Agregar Video</a> --}}
         </div>
     </div>

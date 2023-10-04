@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light border-bottom sticky-top" style="background-color:#041D5B ">
     <div class="container">
-        <!-- Logo -->
+    
         <a class="navbar-brand me-4" href="/">
             <x-jet-application-mark width="36" />
         </a>
@@ -9,7 +9,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
+            
             <ul class="navbar-nav me-auto">
                 <x-jet-nav-link href="{{ route('inicio') }}" :active="request()->routeIs('inicio')" class="text-light">
                     {{ __('CONSULTORIA') }}
@@ -25,10 +25,10 @@
                 </x-jet-nav-link>
             </ul>
 
-            <!-- Right Side Of Navbar -->
+          
             <ul class="navbar-nav align-items-baseline ">
 
-                <!-- Settings Dropdown -->
+        
                 @auth
                     <x-jet-dropdown id="settingsDropdown" class="text-light">
                         <x-slot name="trigger">
@@ -44,7 +44,7 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <!-- Account Management -->
+                         
                             <h6 class="dropdown-header small text-muted">
                                 {{ __('Administrador de cuenta') }}
                             </h6>
@@ -74,7 +74,7 @@
 
                             <hr class="dropdown-divider">
 
-                            <!-- Authentication -->
+                        
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                                  onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
