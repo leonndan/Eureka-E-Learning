@@ -13,11 +13,6 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="">
-                    IMPRIMIR
-                  </a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link text-light" href={{route('cursos')}}>
                     CURSOS
                   </a>
@@ -59,16 +54,6 @@
                             <div class="card-body">
                                 <h3 class="card-title">Mensajes</h3>
                                 <p class="card-text">Mensajes totales: {{$totalMensajes}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title">Estadisticas</h3>
-                                <p class="card-text">Estadisticas</p>
                             </div>
                         </div>
                     </div>
