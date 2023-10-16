@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 use App\Models\Curso;
 use App\Models\Comment;
 use App\Models\Test;
+use Illuminate\Support\Facades\App;
 
 class CursoController extends Controller
 {
@@ -19,6 +20,20 @@ class CursoController extends Controller
         // $cursos = Curso::paginate(5);
         return view('cursos.cursos',compact('data'));
     }
+    public function pdf($id)
+    {
+        $url= env('URL_SERVER_API', 'http://127.0.0.1');
+        $response= Http::get($url.'/cursos/'.$id);
+        $data = $response->json();
+
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('cursos.pdf', compact('data'));
+        return $pdf->stream(); //abrir en web
+        // return $pdf->download('certificado.pdf'); //descargar pdf
+
+
+    }
+
     public function create()
     {
         return view('cursos.cursosCreate');

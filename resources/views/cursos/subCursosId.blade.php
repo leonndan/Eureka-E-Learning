@@ -152,7 +152,8 @@
                 <div class="card mb-4">
                     <div class="card-header">Actividad y certificaciones</div>
                     <a href="{{route('quiz.index',$data[1]['id'])}}" class="btn btn-primary mb-2 ">Tomar quiz</a>
-                    <button type="button" class="btn btn-success"><span class="bi bi-check"></span>Curso completado, ver certificado</button>
+                    <a href="{{route('cursos.pdf',$data[1]['id'])}}" class="btn btn-success mb-2 ">Curso completado, ver certificado</a>
+
                 </div> 
             </div>
         </div>
