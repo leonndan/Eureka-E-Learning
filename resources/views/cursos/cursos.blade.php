@@ -77,6 +77,7 @@
                                 {{-- <small class="text-body-secondary">${{ $curso['precio_curso'] }}</small> --}}
                                 @if($admin=="eurekaelearningeasy@gmail.com")
                                   <a href="{{ route('cursos.delete', $curso['id']) }}" class="btn btn-primary">Borrar curso</a>
+                                  {{-- <a href="{{ route('quiz.create', $curso['id']) }}" class="btn btn-primary">Crear quiz</a> --}}
                                 @endif
                             </div>
                         </div>

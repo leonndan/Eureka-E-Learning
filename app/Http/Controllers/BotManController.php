@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Outgoing\Question;
+use Illuminate\Support\Facades\Http;
 
 
 class BotManController extends Controller
@@ -39,7 +40,9 @@ class BotManController extends Controller
         $botman->hears(".*redes|Redes|Redes sociales.*", function ($botman) {
             $this->Redes($botman);
         });
-
+        $botman->hears(".*(cuales).*(Cursos|curso).*", function ($botman) {
+            $this->Cursos($botman);
+        });
         $botman->fallback(function ($botman) {
             $botman->reply("Lo siento, no entendí tu mensaje. ¿En qué te puedo ayudar?");
         });    
@@ -103,8 +106,9 @@ class BotManController extends Controller
         $botman->reply("Facebook: Eureka E-Learning easy");
         $botman->reply("Instagram: eureka_elearning_easy");
     }
+    public function Cursos($botman)
+    {
+        $botman->reply("Tenemos cursos como: \nCursos de lengua de señas Mexicanas \nProcesos de enseñanza-aprendizaje mas efectivos \nEducación Inclusiva y diversidad");
+    }
 
-      
 }
-
-      

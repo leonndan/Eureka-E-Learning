@@ -149,14 +149,14 @@
                     </div>
                 </div>
                 <!-- Actividad widget-->
-                {{-- <div class="card mb-4">
-                    <div class="card-header">Actividad</div>
-                    <div class="card-body">Aqui van las actividades</div>
-                </div> --}}
-                
+                <div class="card mb-4">
+                    <div class="card-header">Actividad y certificaciones</div>
+                    <a href="{{route('quiz.index',$data[1]['id'])}}" class="btn btn-primary mb-2 ">Tomar quiz</a>
+                    <button type="button" class="btn btn-success"><span class="bi bi-check"></span>Curso completado, ver certificado</button>
+                </div> 
             </div>
         </div>
     </div>
-
+    
     
 </x-app-layout>

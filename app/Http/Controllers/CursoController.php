@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Curso;
 use App\Models\Comment;
+use App\Models\Test;
 
 class CursoController extends Controller
 {
@@ -55,9 +56,10 @@ class CursoController extends Controller
         $data = $response->json();
         $idsub = $data[0]['id'];
         $comments = Comment::where('curso_id', $idsub)->get();
+        // $quiz = Test::where('curso_id', $idsub)->get();
 
+        // return view('cursos.subCursosId', compact('data','comments','quiz'));
         return view('cursos.subCursosId', compact('data','comments'));
-        // return view('cursos.cursosId', compact('data','comments'));
         
         // $curso = Curso::find($id);
         // return view('cursos.cursosId', compact('curso'));

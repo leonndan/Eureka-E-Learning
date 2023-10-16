@@ -8,6 +8,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BotManController;
 use App\Http\Controllers\SubCursoController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\TestController;
 use App\Models\Curso;
 
 /*
@@ -50,10 +52,15 @@ Route::middleware([
     Route::get('/cursos/subcurso/edit/{subcurso}', [SubCursoController::class, 'edit'])->name('subcursos.edit');
     Route::post('/cursos/subcurso/update', [SubCursoController::class, 'update'])->name('subcursos.update');
 
+
     //comments
     Route::post('/cursos/subcurso/{id}/comment', [CommentController::class, 'store'])->name('comments.store');
     Route::post('/cursos/subcursos/{id}/comment', [CommentController::class, 'store2'])->name('comments.store2');
 
+    //quiz
+    Route::get('cursos/quiz/{id}',[QuizController::class, 'index'])->name('quiz.index');
+    Route::get('cursos/quiz/create/{id}',[QuizController::class, 'create'])->name('quiz.create');
+    Route::post('cursos/quiz/create',[QuizController::class, 'store'])->name('quiz.store');
 });
 
 

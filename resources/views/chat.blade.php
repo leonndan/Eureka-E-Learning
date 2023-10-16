@@ -96,8 +96,10 @@
 <script>
     $(function() {
         let ip_address = '127.0.0.1';
+        // let ip_address = '';
         let socket_port = '3000';
         let socket = io(ip_address + ':' + socket_port);
+        // let socket = io("chat-8zwb030y2-andertorne.vercel.app");
 
         let chatInput = $('#chat-input');
         let handle = $('#handle');
