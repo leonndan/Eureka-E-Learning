@@ -2,12 +2,42 @@
     <x-slot name="header">
         <div class="d-flex justify-content-between align-items-center">
             <h1>Quiz </h1>
-            <a href="{{route('cursos.show',$id)}}" class="btn btn-primary">Regresar al curso</a>
+            <a href="" class="btn btn-primary">Regresar al curso</a>
         </div>
     </x-slot>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/quiz.css') }}" >
     
     <title>Crear quiz</title>
+    <div>
+        <p>Para desbloquear el certificado, favor de responder correctamente el Quiz</p>
+    </div>
+    
+    
+    <form action="{{ route('quiz.store') }}" method="post">
+        @csrf
+        @foreach ($preguntas as $pregunta)
+            <p>{{ $pregunta->pregunta }}</p>
+            @foreach (json_decode($pregunta->opciones) as $opcion)
+                <label>
+                    <input type="radio" name="pregunta_{{ $pregunta->id }}" value="{{ $opcion }}">
+                    {{ $opcion }}
+                </label>
+            @endforeach
+        @endforeach
+        <button type="submit" class="btn-submit">Enviar respuestas</button>
+    </form>
+    @if ($puntaje !== null)
+        <p>Tu puntaje: {{ $puntaje }} de {{ $puntajeMaximo }}</p>
+    @endif
+
+    @if ($puntaje == $puntajeMaximo)
+        <a href="" class="btn btn-success">Descargar Certificado</a>
+    @else
+        <a href="" class="btn">Descargar Certificado</a>
+    @endif
+    
+    
+    
 
     
     {{-- <form action="{{route('quiz.store')}}" method="POST">
@@ -52,30 +82,34 @@
             <h2>Cantidad acertadas: <span id="resultado"></span></h2>
         </div>
     </form> --}}
+{{--
+        <div class="container">
+            <section id="p0">
+                <h3>1- ¿Que es el LSM?</h3>
+                <label><input type="radio" value="1" name="p0" id="" onclick="respuesta(0,this)">Lenguaje de Señas mexicano</label>
+                <label><input type="radio" value="2" name="p0" id="" onclick="respuesta(0,this)">Las Señas mexicanas</label>
+                <label><input type="radio" value="3" name="p0" id="" onclick="respuesta(0,this)">Lenguaje de Mudos</label>
+                <label><input type="radio" value="4" name="p0" id="" onclick="respuesta(0,this)">Lenguaje de Sordos</label>
+            </section>
+            <section id="p1">
+                <h3>2- ¿Cuantas letras tiene el LSM?</h3>
+                <label><input type="radio" value="1" name="p1" id="" onclick="respuesta(1,this)">29</label>
+                <label><input type="radio" value="2" name="p1" id="" onclick="respuesta(1,this)">28</label>
+                <label><input type="radio" value="3" name="p1" id="" onclick="respuesta(1,this)">27</label>
+                <label><input type="radio" value="4" name="p1" id="" onclick="respuesta(1,this)">26</label>
+            </section>
 
-    <div class="container">
-        <section id="p0">
-            <h3>1- ¿Que es el LSM?</h3>
-            <label><input type="radio" value="1" name="p0" id="" onclick="respuesta(0,this)">Lenguaje de Señas mexicano</label>
-            <label><input type="radio" value="2" name="p0" id="" onclick="respuesta(0,this)">Las Señas mexicanas</label>
-            <label><input type="radio" value="3" name="p0" id="" onclick="respuesta(0,this)">Lenguaje de Mudos</label>
-            <label><input type="radio" value="4" name="p0" id="" onclick="respuesta(0,this)">Lenguaje de Sordos</label>
-        </section>
-        <section id="p1">
-            <h3>2- ¿Cuantas letras tiene el LSM?</h3>
-            <label><input type="radio" value="1" name="p1" id="" onclick="respuesta(1,this)">29</label>
-            <label><input type="radio" value="2" name="p1" id="" onclick="respuesta(1,this)">28</label>
-            <label><input type="radio" value="3" name="p1" id="" onclick="respuesta(1,this)">27</label>
-            <label><input type="radio" value="4" name="p1" id="" onclick="respuesta(1,this)">26</label>
-        </section>
+            <button onclick="corregir()">Evaluar</button>
+            <h2>Cantidad de respuestas correctas: <span id="resultado"></span></h2>
 
-        <button onclick="corregir()">Corregir</button>
-        <h2>Cantidad de respuestas correctas: <span id="resultado"></span></h2>
+            @if(<span></span>==2){
+                <button onclick="certificado()">Obtener Certificado</button>
+            @endif
+            }
+
+        </div>
+            {{-- <button onclick="certificado()">Certificado</button> --}}
 
 
-    </div>
-        {{-- <button onclick="certificado()">Certificado</button> --}}
-
-
-<script src="{{asset('js/quiz.js')}}"></script>
+    <script src="{{asset('js/quiz.js')}}"></script>
 </x-app-layout>
