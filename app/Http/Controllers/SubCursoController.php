@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 use App\Models\SubCurso;
 use App\Models\Comment;
 use App\Http\Controllers\CommentController;
+use Illuminate\Support\Facades\App;
 
 class SubCursoController extends Controller
 {
@@ -29,6 +30,18 @@ class SubCursoController extends Controller
         
         // $curso = Curso::find($id);
         // return view('cursos.cursosId', compact('curso'));
+    }
+    public function pdf($id)
+    {
+        $url= env('URL_SERVER_API', 'http://127.0.0.1');
+        $response= Http::get($url.'/cursos/subcurso/'.$id);
+        $data = $response->json();
+
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('cursos.pdf', compact('data'));
+        return $pdf->stream(); //abrir en web
+        // return $pdf->download('certificado.pdf'); //descargar pdf
+
 
     }
     public function create($id)

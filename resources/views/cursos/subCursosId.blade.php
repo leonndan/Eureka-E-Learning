@@ -151,8 +151,8 @@
                 <!-- Actividad widget-->
                 <div class="card mb-4">
                     <div class="card-header">Actividad y certificaciones</div>
-                    {{-- {{$data[1]['id']}} --}}
-                    <a href="{{route('quiz.index',$data[1]['id'])}}" class="btn btn-primary mb-2 ">Tomar quiz</a>
+                    {{-- {{$data[0]['id']}} --}}
+                    <a href="{{route('quiz.index',$data[0]['id'])}}" class="btn btn-primary mb-2 ">Tomar quiz</a>
                     
                 </div> 
             </div>

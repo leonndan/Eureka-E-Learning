@@ -45,7 +45,7 @@ class BotManController extends Controller
         });
         $botman->fallback(function ($botman) {
             $botman->reply("Lo siento, no entendí tu mensaje. ¿En qué te puedo ayudar?");
-        });    
+        });
         
         $botman->listen();
     }

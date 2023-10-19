@@ -61,8 +61,9 @@ Route::middleware([
 
     Route::get('cursos/quiz/{id}',[QuizController::class, 'index'])->name('quiz.index');
     Route::get('cursos/quiz/create/{id}',[QuizController::class, 'create'])->name('quiz.create');
-    Route::post('cursos/quiz/submit',[QuizController::class, 'submit'])->name('quiz.store');
+    Route::post('cursos/quiz/submit/{id}',[QuizController::class, 'submit'])->name('quiz.store');
     Route::get('cursos/pdf/{id}',[CursoController::class, 'pdf'])->name('cursos.pdf');
+    Route::get('cursos/pdf/{id}',[SubCursoController::class, 'pdf'])->name('subcursos.pdf');
 });
 
 
