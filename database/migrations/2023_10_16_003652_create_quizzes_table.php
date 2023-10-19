@@ -18,6 +18,8 @@ class CreateQuizzesTable extends Migration
             $table->string('pregunta');
             $table->string('respuesta_correcta');
             $table->json('opciones');
+            // $table->foreignId('curso_id')->constrained('cursos')->onDelete('cascade');
+            $table->bigInteger('curso_id');
             $table->timestamps();
         });
     }

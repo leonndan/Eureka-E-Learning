@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="d-flex justify-content-between align-items-center">
             <h1>Quiz </h1>
-            <a href="" class="btn btn-primary">Regresar al curso</a>
+            <a href="{{route('cursos.show',$data[1]['id'])}}" class="btn btn-primary">Regresar al curso</a>
         </div>
     </x-slot>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/quiz.css') }}" >
@@ -10,10 +10,11 @@
     <title>Crear quiz</title>
     <div>
         <p>Para desbloquear el certificado, favor de responder correctamente el Quiz</p>
+        {{-- {{$data[1]['id']}} --}}
     </div>
     
     
-    <form action="{{ route('quiz.store') }}" method="post">
+    <form action="{{ route('quiz.store')}}" method="post">
         @csrf
         @foreach ($preguntas as $pregunta)
             <p>{{ $pregunta->pregunta }}</p>
@@ -31,9 +32,10 @@
     @endif
 
     @if ($puntaje == $puntajeMaximo)
-        <a href="" class="btn btn-success">Descargar Certificado</a>
-    @else
-        <a href="" class="btn">Descargar Certificado</a>
+        <a href="{{route('cursos.pdf',$data[1]['id'])}}" class="btn btn-success">Descargar Certificado</a>
+        
+    {{-- @else
+        <a href="{{route('cursos.pdf',$data[1]['id'])}}" class="btn">Descargar Certificado</a> --}}
     @endif
     
     
